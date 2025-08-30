@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solo Leveling — Your System</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="theme-color" content="#0b0f14">
+</head>
+<body>
+<header class="topbar">
+  <h1>Solo Leveling: Your System</h1>
+  <div class="top-actions">
+    <button id="installBtn" class="ghost" style="display:none">Install</button>
+    <button id="exportBtn" class="ghost">Export</button>
+    <label class="file input">
+      <input type="file" id="importFile" accept="application/json"> Import
+    </label>
+    <button id="resetDayBtn" class="ghost">New Day</button>
+  </div>
+</header>
+
+<main class="container">
+  <section class="card profile">
+    <div class="row">
+      <div>
+        <div class="rank-badge" id="rankBadge">E</div>
+        <div class="level-wrap">
+          <div class="level">Lv. <span id="level">1</span></div>
+          <div class="xpbar">
+            <div id="xpFill" class="xpfill" style="width:0%"></div>
+          </div>
+          <div class="xplabel"><span id="xpNow">0</span>/<span id="xpNext">50</span> XP</div>
+        </div>
+      </div>
+      <div class="titles">
+        <div class="title-current">Title: <span id="currentTitle">Novice Hunter</span></div>
+        <div class="title-next">Next: <span id="nextTitle">Impulse Breaker (Lv.5)</span></div>
+      </div>
+    </div>
+    <div class="row quick">
+      <div class="streak">
+        <strong>Streak</strong>
+        <div><span id="streakDays">0</span> days</div>
+      </div>
+      <div class="week">
+        <strong>Week Boss</strong>
+        <div>Clears: <span id="weeklyClears">0</span></div>
+      </div>
+      <div class="hardmode-toggle">
+        <label>
+          <input type="checkbox" id="hardMode"> Hard Mode
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <section class="card stats">
+    <h2>Stats (1–100)</h2>
+    <div class="grid stats-grid" id="statsGrid"></div>
+    <div class="passives" id="passives">Passives: None yet</div>
+  </section>
+
+  <section class="card quests">
+    <h2>Daily Quests</h2>
+    <div class="grid quest-grid" id="dailyQuests"></div>
+    <div class="hint">Complete all dailies to gain <strong>Bonus XP</strong> and a Title checkpoint boost.</div>
+  </section>
+
+  <section class="card boss">
+    <h2>Weekly Boss: The Craving Beast</h2>
+    <p>One late-night (post 10pm) with <em>no smoking, no jerking, no doomscrolling</em>. Use the Shield if needed.</p>
+    <div class="boss-controls">
+      <button id="startBoss">Start Night Challenge</button>
+      <button id="clearBoss" class="success">Mark Cleared</button>
+    </div>
+    <div id="bossStatus" class="boss-status">Status: Idle</div>
+  </section>
+
+  <section class="card tools">
+    <h2>Anti-Temptation Tools</h2>
+    <div class="tool-row">
+      <button id="panicShield" class="warning">Activate Shield (3 min Breath)</button>
+      <button id="urgeTimerBtn">Urge Timer (10 min)</button>
+      <button id="coldShowerBtn">Cold Shower Logged</button>
+    </div>
+    <div id="toolStatus" class="muted"></div>
+  </section>
+
+  <section class="card custom">
+    <h2>Custom Quest</h2>
+    <div class="row">
+      <input id="customName" placeholder="e.g., 30 min run" />
+      <input id="customXp" type="number" min="1" max="200" value="20" />
+      <button id="addCustom">Add</button>
+    </div>
+    <div id="customList" class="grid quest-grid"></div>
+  </section>
+
+  <section class="card info">
+    <h2>Rules & Rewards</h2>
+    <ul>
+      <li>All stats start at <strong>1/100</strong>. Max 100.</li>
+      <li>Complete **No Smoking** and **No Jerking** each day for big XP and stat gains.</li>
+      <li><strong>Ranks</strong>: E(1–9), D(10–19), C(20–34), B(35–49), A(50–69), S(70–84), SS(85–94), SSS(95–100).</li>
+      <li><strong>Titles</strong> at L5,10,20,30,40,50,60,70,80,90 — each gives a passive perk.</li>
+      <li><strong>Hard Mode</strong>: Miss a daily → lose XP and stat points. No mercy.</li>
+      <li>New Day resets dailies at midnight automatically; you can also tap “New Day”.</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="footer">
+  <small>All data stored locally on your device. Stay sharp, Hunter.</small>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
